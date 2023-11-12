@@ -1,0 +1,200 @@
+$themecolor: #313fce;
+
+@mixin box-style {
+    background: $themecolor;
+    padding: 20px;
+    width: 100%;
+    gap: 20px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px gray, inset 2px 2px 2px white;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: flex-end;
+    box-sizing: border-box;
+    border: 1px solid $themecolor;
+
+    img {
+        width: 150px;
+    }
+
+    h1 {
+
+        text-transform: uppercase;
+        color: $themecolor;
+    }
+}
+
+.Main-Container {
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    box-sizing: border-box;
+
+    .Search-area {
+
+        @include box-style;
+        display: flex;
+        flex-direction: column;
+        form {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            button {
+                padding: 5px;
+                font-size: 30px;
+                align-items: center;
+                color: $themecolor;
+                cursor: pointer;
+                border-radius: 5px;
+                border: 1px solid white;
+            }
+
+            button:hover {
+                color: white;
+                background: $themecolor;
+            }
+
+            .Fields {
+                width: 90%;
+                display: flex;
+                position: relative;
+                align-items: center;
+
+                textarea {
+                    width: 100%;
+                    font-size: 16px;
+                    padding: 5px;
+                    padding-right: 30px;
+                    font-family: 'Courier New', Courier, monospace;
+                    resize: none;
+                    color:$themecolor;
+                }
+
+                textarea::placeholder {
+                    font-family: 'Courier New', Courier, monospace;
+                    color: $themecolor;
+
+                }
+
+                .Clear-Button {
+                    position: absolute;
+                    right: 20px;
+                    color: $themecolor;
+                    font-size: 20px;
+                    font-weight: bold;
+                    cursor: pointer
+                }
+
+            }
+        }
+
+        .Predefine table 
+        {
+            width: 100%;
+            color: white;
+        }
+    }
+
+    .Intro
+    {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        color:white;
+        box-sizing: border-box;
+
+        .How-to-use
+        {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        li 
+        {
+            padding: 5px;
+            margin-left: 40px
+        }
+
+    }
+
+    .Data-Container {
+        @include box-style();
+        display: flex;
+        flex-direction: column;
+        height: 500px;
+        overflow: hidden;
+
+        .Data {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .Response-table {
+                border: none;
+            }
+
+            span {
+                color: whitesmoke;
+
+                .Searched {
+                    color: rgb(0, 255, 0);
+                }
+
+                .Response {
+                    color: lightgreen;
+                    color: rgb(0, 255, 0);
+                }
+            }
+
+            .Result {
+                width: 100%;
+                box-sizing: border-box;
+                max-height: 400px;
+                overflow: auto;
+                border: 1px solid white;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                color: white;
+
+                thead {
+                    background: white;
+                    color: $themecolor;
+                    position: sticky;
+                    top: -1px;
+                }
+
+                td {
+                    padding: 5px;
+                }
+            }
+        }
+    }
+}
