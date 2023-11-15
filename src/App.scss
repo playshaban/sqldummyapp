@@ -111,10 +111,24 @@ header {
             }
         }
 
-        .Predefine table 
+        .Predefine
         {
             width: 100%;
             color: white;
+            
+            .row 
+            {
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                align-items: flex-end;
+
+                @media (max-width:700px) {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 5px;
+                }
+            }
         }
     }
 
@@ -148,6 +162,7 @@ header {
         flex-direction: column;
         height: 500px;
         overflow: hidden;
+
 
         .Data {
             display: flex;
@@ -196,5 +211,15 @@ header {
                 }
             }
         }
+        @media (max-width:700px)
+        {
+            max-height: fit-content;
+        }
+    }
+
+    @media (max-width : 800px)
+    {
+        width: 100%;
+    
     }
 }

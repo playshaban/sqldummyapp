@@ -66,9 +66,9 @@ function App() {
       const response = await fetch("product.json");
       const data = await response.json();
       let reversed;
-      if(sort) {
+      if (sort) {
         reversed = data.reverse();
-      }else{
+      } else {
         reversed = data;
       }
       const slicedData = reversed.slice(0, limit);
@@ -99,14 +99,13 @@ function App() {
     setSort(e.target.value);
   };
 
-
-  //for cheking up page performance 
+  //for cheking up page performance
   useEffect(() => {
     const startTime = performance.now();
     const endTime = performance.now();
     const loadTime = endTime - startTime;
     console.log(`Page load time: ${loadTime} milliseconds`);
-  }, []); 
+  }, []);
 
   return (
     <div className="App">
@@ -137,40 +136,38 @@ function App() {
             </button>
           </form>
           <div className="Predefine">
-            <table>
-              <tr>
-                <td>PREDEFINE QUERIES</td>
-                <td>
-                  <select onChange={(e) => handleQuery(e)}>
-                    <option value="">CHOOSE</option>
-                    <option value="SELECT * FROM PRODUCTS">
-                      SELECT * FROM PRODUCTS
-                    </option>
-                    <option value="SELECT ProductID , ProductName FROM PRODUCTS">
-                      SELECT ProductID , ProductName FROM PRODUCTS
-                    </option>
-                  </select>
-                </td>
-                <td>
-                  <label>LIMIT ROWS</label>
-                </td>
-                <td>
-                  <select onChange={(e) => handleSelectChange(e)}>
-                    <option value="100"> 100</option>
-                    <option value="10"> 10</option>
-                    <option value="25"> 25</option>
-                    <option value="50"> 50</option>
-                  </select>
-                </td>
-                <td>Sort</td>
-                <td>
-                  <select onChange={(e) => handleSort(e)}>
-                    <option value="0"> ASSENDING</option>
-                    <option value="1"> DESSENDING</option>
-                  </select>
-                </td>
-              </tr>
-            </table>
+            <div className="row">
+              <div className="fields">
+                <label>PREDEFINE QUERIES</label>
+                <select onChange={(e) => handleQuery(e)}>
+                  <option value="">CHOOSE</option>
+                  <option value="SELECT * FROM PRODUCTS">
+                    SELECT * FROM PRODUCTS
+                  </option>
+                  <option value="SELECT ProductID , ProductName FROM PRODUCTS">
+                    SELECT ProductID , ProductName FROM PRODUCTS
+                  </option>
+                </select>
+              </div>
+              <div className="fields">
+                <label>LIMIT ROWS</label>
+
+                <select onChange={(e) => handleSelectChange(e)}>
+                  <option value="100"> 100</option>
+                  <option value="10"> 10</option>
+                  <option value="25"> 25</option>
+                  <option value="50"> 50</option>
+                </select>
+              </div>
+              <div className="fields">
+                <lable>SORT</lable>
+
+                <select onChange={(e) => handleSort(e)}>
+                  <option value="0"> ASSENDING</option>
+                  <option value="1"> DESSENDING</option>
+                </select>
+              </div>
+            </div>
           </div>
         </div>
         <div className="Data-Container">
